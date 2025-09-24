@@ -2,7 +2,7 @@
 
 Webová aplikace určená k organizaci a správě společenských akcí. Aplikace pomáhá uživatelům koordinovat různé aspekty plánování akcí: správu hostů, koordinaci jídla, hudební playlisty a další nezbytnou logistiku párty.
 
-## Tým
+## Tým SYV
 
 | Jméno | Role |
 |-------|------|
