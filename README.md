@@ -12,7 +12,7 @@ Webová aplikace určená k organizaci a správě společenských akcí. Aplikac
 | Heorhii Teteria | Team leader pro implementaci |
 | Alian Bilal | Analytik |
 | Pavel Machnev | Analytik |
-| Pavel Machnev | Analytik |
+| Vitalii Manilnykov | Analytik |
 | Adam Čepelák | Team leader pro analýzu |
 
 ## Schůzky
