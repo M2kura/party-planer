@@ -8,7 +8,7 @@ Webová aplikace určená k organizaci a správě společenských akcí. Aplikac
 |-------|------|
 | Val Kravtsova | Vývojář |
 | Eleonora Virych | PM |
-| Daniil Smyshliaev | Vývojář |
+| Danila Smyshliaev | Vývojář |
 | Heorhii Teteria | Team leader pro implementaci |
 | Alian Bilal | Analytik |
 | Pavel Machnev | Analytik |
