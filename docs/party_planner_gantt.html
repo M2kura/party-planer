@@ -89,18 +89,18 @@
           labelStyle: {
             fontName: 'Arial',
             fontSize: 13,
-            color: '#333333'
+            color: '#e0e0e0'
           },
           criticalPathEnabled: false,
           innerGridHorizLine: {
-            stroke: '#ddd',
+            stroke: '#404040',
             strokeWidth: 1
           },
           innerGridTrack: {
-            fill: '#f5f5f5'
+            fill: '#2d2d2d'
           },
           innerGridDarkTrack: {
-            fill: '#e8e8e8'
+            fill: '#1a1a1a'
           },
           palette: [
             '#9c27b0',  // Purple for phases (first resource type)
@@ -119,20 +119,23 @@
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background-color: #f5f5f5;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
     }
     #chart_div {
-      background-color: white;
+      background-color: #2d2d2d;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
       padding: 20px;
       overflow-x: auto;
       max-width: 100%;
+      border: 1px solid #404040;
     }
     h1 {
       text-align: center;
-      color: #333;
+      color: #e0e0e0;
       margin-bottom: 30px;
+      font-weight: bold;
     }
     .legend {
       display: flex;
@@ -150,10 +153,14 @@
       height: 15px;
       border-radius: 3px;
     }
+    .legend-item span {
+      color: #e0e0e0;
+      font-weight: bold;
+    }
     .current-date {
       text-align: center;
       margin-top: 20px;
-      color: #666;
+      color: #b0b0b0;
       font-style: italic;
     }
   </style>

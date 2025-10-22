@@ -6,30 +6,32 @@
     <title>Party Planner - Projektová dokumentace</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
         }
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
             color: white;
             padding: 40px 0;
             text-align: center;
             margin-bottom: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         h1 {
             margin: 0;
             font-size: 2.5em;
-            font-weight: 300;
+            font-weight: bold;
+            color: #ffffff;
         }
         .subtitle {
             margin: 10px 0 0 0;
@@ -37,82 +39,170 @@
             opacity: 0.9;
         }
         .content {
-            background: white;
+            background: #2d2d2d;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             margin-bottom: 30px;
+            border: 1px solid #404040;
+        }
+        .content h2 {
+            color: #e0e0e0;
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: bold;
         }
         .team-section {
-            background: white;
+            background: #2d2d2d;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             margin-bottom: 30px;
+            border: 1px solid #404040;
+        }
+        .team-section h2 {
+            color: #e0e0e0;
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: bold;
         }
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
         .team-member {
-            background: #f8f9fa;
+            background: #1a1a1a;
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-left: 6px solid #4285f4;
+            border: 1px solid #404040;
+            transition: transform 0.2s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
         }
         .team-member h3 {
             margin: 0 0 10px 0;
-            color: #667eea;
+            color: #4285f4;
+            font-size: 1.2em;
+            font-weight: bold;
         }
         .team-member p {
             margin: 0;
-            color: #666;
+            color: #b0b0b0;
+            font-size: 0.95em;
+        }
+        .team-member.analyst {
+            border-left-color: #34a853;
+        }
+        .team-member.analyst h3 {
+            color: #34a853;
+        }
+        .team-member.developer {
+            border-left-color: #fbbc04;
+        }
+        .team-member.developer h3 {
+            color: #fbbc04;
+        }
+        .team-member.pm {
+            border-left-color: #9c27b0;
+        }
+        .team-member.pm h3 {
+            color: #9c27b0;
+        }
+        .team-member.team-leader {
+            border-left-color: #ea4335;
+        }
+        .team-member.team-leader h3 {
+            color: #ea4335;
         }
         .docs-section {
-            background: white;
+            background: #2d2d2d;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            border: 1px solid #404040;
+            margin-bottom: 30px;
+        }
+        .docs-section h2 {
+            color: #e0e0e0;
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: bold;
         }
         .doc-link {
             display: inline-block;
-            background: #667eea;
+            background: #4285f4;
             color: white;
             padding: 15px 30px;
             text-decoration: none;
             border-radius: 5px;
             margin: 10px 10px 10px 0;
             transition: background-color 0.3s;
+            font-weight: bold;
         }
         .doc-link:hover {
-            background: #5a6fd8;
+            background: #3367d6;
         }
         .branch-info {
-            background: #e3f2fd;
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            border: 1px solid #404040;
+        }
+        .doc-link {
+            display: inline-block;
+            background: #4285f4;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 10px 10px 0;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .doc-link:hover {
+            background: #3367d6;
+        }
+        .branch-info {
+            background: #2d2d2d;
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
-            border-left: 4px solid #2196f3;
+            border-left: 6px solid #666666;
+            border: 1px solid #404040;
         }
         .branch-info h3 {
             margin-top: 0;
-            color: #1976d2;
+            color: #e0e0e0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .branch-info p {
+            color: #b0b0b0;
         }
         .branch-list {
             list-style: none;
             padding: 0;
         }
         .branch-list li {
-            background: white;
+            background: #1a1a1a;
             margin: 10px 0;
             padding: 15px;
             border-radius: 5px;
-            border-left: 3px solid #2196f3;
+            border-left: 4px solid #666666;
+            border: 1px solid #404040;
         }
         .branch-list li strong {
-            color: #1976d2;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+        .branch-list li {
+            color: #b0b0b0;
         }
     </style>
 </head>
@@ -131,39 +221,44 @@
         <div class="team-section">
             <h2>Tým SYV</h2>
             <div class="team-grid">
-                <div class="team-member">
+                <div class="team-member developer">
                     <h3>Val Kravtsova</h3>
                     <p>Vývojář</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member pm">
                     <h3>Eleonora Virych</h3>
                     <p>PM</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member developer">
                     <h3>Danila Smyshliaev</h3>
                     <p>Vývojář</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member team-leader">
                     <h3>Heorhii Teteria</h3>
                     <p>Team leader pro implementaci</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member analyst">
                     <h3>Alian Bilal</h3>
                     <p>Analytik</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member analyst">
                     <h3>Pavel Machnev</h3>
                     <p>Analytik</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member analyst">
                     <h3>Vitalii Manilnykov</h3>
                     <p>Analytik</p>
                 </div>
-                <div class="team-member">
+                <div class="team-member team-leader">
                     <h3>Adam Čepelák</h3>
                     <p>Team leader pro analýzu</p>
                 </div>
             </div>
+        </div>
+
+        <div class="docs-section">
+            <h2>Dokumentace</h2>
+            <a href="party_planner_gantt.html" class="doc-link">Gantt Chart - Projektový plán</a>
         </div>
 
         <div class="branch-info">
@@ -174,22 +269,6 @@
                 <li><strong>main</strong> - Hlavní větev s obecnou dokumentací</li>
                 <li><strong>ANALYTICAL</strong> - Dokumentace analytické fáze projektu</li>
                 <li><strong>IMPLEMENTATION</strong> - Dokumentace implementační fáze projektu</li>
-            </ul>
-        </div>
-
-        <div class="docs-section">
-            <h2>Dokumentace</h2>
-            <p>Zde najdete všechny dostupné dokumenty projektu:</p>
-            
-            <a href="party_planner_gantt.html" class="doc-link">📊 Ganttův diagram projektu</a>
-            
-            <h3>Jak používat GitLab Pages</h3>
-            <p>Po nasazení bude dokumentace dostupná na adrese:</p>
-            <p><code>https://[username].gitlab.io/pm2-partyplanner/</code></p>
-            <p>Pro přístup k dokumentaci z jiných větví použijte:</p>
-            <ul>
-                <li><code>https://[username].gitlab.io/pm2-partyplanner/-/analytical/</code></li>
-                <li><code>https://[username].gitlab.io/pm2-partyplanner/-/implementation/</code></li>
             </ul>
         </div>
     </div>
