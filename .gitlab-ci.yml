@@ -1,0 +1,42 @@
+# GitLab CI configuration for hosting documentation on GitLab Pages
+# This will deploy HTML files from different branches to GitLab Pages
+
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying documentation to GitLab Pages from branch: $CI_COMMIT_REF_NAME"
+    - mkdir public
+    
+    # Copy documentation files
+    - if [ -d "docs" ]; then cp -r docs/* public/; fi
+    - if [ -f "README.md" ]; then cp README.md public/; fi
+    
+    # Create branch-specific index if needed
+    - echo "Creating branch-specific documentation structure"
+    - echo "Branch: $CI_COMMIT_REF_NAME" > public/branch-info.txt
+    
+    # Ensure index.html exists
+    - if [ ! -f "public/index.html" ]; then echo "<h1>Documentation for branch: $CI_COMMIT_REF_NAME</h1><p>No index.html found in docs/ directory.</p>" > public/index.html; fi
+    
+    - echo "Documentation files copied to public directory:"
+    - ls -la public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 hour
+  only:
+    - main
+    - ANALYTICAL
+    - IMPLEMENTATION
+
+# Validate HTML files before deployment
+validate_html:
+  stage: test
+  script:
+    - echo "Validating HTML files..."
+    - find . -name "*.html" -exec echo "Found HTML file: {}" \;
+    - if [ -d "docs" ]; then find docs/ -name "*.html" -exec echo "Validating: {}" \; -exec python3 -c "import sys; from html.parser import HTMLParser; parser = HTMLParser(); parser.feed(open(sys.argv[1]).read())" {} \; 2>/dev/null || echo "HTML validation completed (basic check)"; fi
+  only:
+    - main
+    - ANALYTICAL
+    - IMPLEMENTATION

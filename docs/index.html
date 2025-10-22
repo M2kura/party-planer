@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Planner - Projektová dokumentace</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .subtitle {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .team-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .team-member {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .team-member h3 {
+            margin: 0 0 10px 0;
+            color: #667eea;
+        }
+        .team-member p {
+            margin: 0;
+            color: #666;
+        }
+        .docs-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .doc-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 10px 10px 0;
+            transition: background-color 0.3s;
+        }
+        .doc-link:hover {
+            background: #5a6fd8;
+        }
+        .branch-info {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .branch-info h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        .branch-list {
+            list-style: none;
+            padding: 0;
+        }
+        .branch-list li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #2196f3;
+        }
+        .branch-list li strong {
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Party Planner</h1>
+            <p class="subtitle">Projektová dokumentace</p>
+        </header>
+
+        <div class="content">
+            <h2>O projektu</h2>
+            <p>Webová aplikace určená k organizaci a správě společenských akcí. Aplikace pomáhá uživatelům koordinovat různé aspekty plánování akcí: správu hostů, koordinaci jídla, hudební playlisty a další nezbytnou logistiku párty.</p>
+        </div>
+
+        <div class="team-section">
+            <h2>Tým SYV</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Val Kravtsova</h3>
+                    <p>Vývojář</p>
+                </div>
+                <div class="team-member">
+                    <h3>Eleonora Virych</h3>
+                    <p>PM</p>
+                </div>
+                <div class="team-member">
+                    <h3>Danila Smyshliaev</h3>
+                    <p>Vývojář</p>
+                </div>
+                <div class="team-member">
+                    <h3>Heorhii Teteria</h3>
+                    <p>Team leader pro implementaci</p>
+                </div>
+                <div class="team-member">
+                    <h3>Alian Bilal</h3>
+                    <p>Analytik</p>
+                </div>
+                <div class="team-member">
+                    <h3>Pavel Machnev</h3>
+                    <p>Analytik</p>
+                </div>
+                <div class="team-member">
+                    <h3>Vitalii Manilnykov</h3>
+                    <p>Analytik</p>
+                </div>
+                <div class="team-member">
+                    <h3>Adam Čepelák</h3>
+                    <p>Team leader pro analýzu</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="branch-info">
+            <h3>Větev projektu</h3>
+            <p>Aktuálně zobrazujete dokumentaci z větve: <strong id="current-branch">main</strong></p>
+            <p>Projekt obsahuje následující větve:</p>
+            <ul class="branch-list">
+                <li><strong>main</strong> - Hlavní větev s obecnou dokumentací</li>
+                <li><strong>ANALYTICAL</strong> - Dokumentace analytické fáze projektu</li>
+                <li><strong>IMPLEMENTATION</strong> - Dokumentace implementační fáze projektu</li>
+            </ul>
+        </div>
+
+        <div class="docs-section">
+            <h2>Dokumentace</h2>
+            <p>Zde najdete všechny dostupné dokumenty projektu:</p>
+            
+            <a href="party_planner_gantt.html" class="doc-link">📊 Ganttův diagram projektu</a>
+            
+            <h3>Jak používat GitLab Pages</h3>
+            <p>Po nasazení bude dokumentace dostupná na adrese:</p>
+            <p><code>https://[username].gitlab.io/pm2-partyplanner/</code></p>
+            <p>Pro přístup k dokumentaci z jiných větví použijte:</p>
+            <ul>
+                <li><code>https://[username].gitlab.io/pm2-partyplanner/-/analytical/</code></li>
+                <li><code>https://[username].gitlab.io/pm2-partyplanner/-/implementation/</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Detect current branch from URL or set default
+        const urlParams = new URLSearchParams(window.location.search);
+        const branch = urlParams.get('branch') || 'main';
+        document.getElementById('current-branch').textContent = branch;
+    </script>
+</body>
+</html>

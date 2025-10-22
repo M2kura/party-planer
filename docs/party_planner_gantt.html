@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Party Planner Project Gantt Chart</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function daysToMilliseconds(days) {
+      return days * 24 * 60 * 60 * 1000;
+    }
+
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      data.addRows([
+        // Analysis Phase (Parent) - comes first
+        ['analysis_phase', 'Analysis Phase', 'phase',
+         new Date(2025, 8, 24), new Date(2025, 10, 15), null, 75, null],
+        
+        // Analysis Phase Subtasks
+        ['intro_analysis', 'Úvodní analýza', 'completed',
+         new Date(2025, 8, 24), new Date(2025, 8, 28), null, 100, null],
+        ['risk_assessment', 'Odhad rizik', 'completed',
+         new Date(2025, 8, 29), new Date(2025, 9, 2), null, 100, null],
+        ['requirements', 'Definice požadavků (funkčních/nefunkčních)', 'completed',
+         new Date(2025, 9, 3), new Date(2025, 9, 9), null, 100, null],
+        ['use_cases', 'Případy použití', 'completed',
+         new Date(2025, 9, 10), new Date(2025, 9, 22), null, 100, null],
+        ['business_analysis', 'Business analýza a příprava Ganttova diagramu', 'completed',
+         new Date(2025, 9, 10), new Date(2025, 9, 15), null, 100, null],
+        ['component_diagram', 'Component diagram', 'ongoing',
+         new Date(2025, 9, 15), new Date(2025, 9, 22), null, 50, null],
+        ['deployment_diagram', 'Deployment diagram', 'ongoing',
+         new Date(2025, 9, 15), new Date(2025, 9, 22), null, 50, null],
+        ['class_diagram', 'Class diagram', 'ongoing',
+         new Date(2025, 9, 15), new Date(2025, 9, 22), null, 50, null],
+        ['system_analysis', 'Analýza softwaru/systému', 'not_started',
+         new Date(2025, 9, 23), new Date(2025, 9, 31), null, 0, null],
+        ['design', 'Návrh', 'not_started',
+         new Date(2025, 10, 1), new Date(2025, 10, 15), null, 0, null],
+        
+        // Implementation Phase (Parent) - comes before its subtasks
+        ['implementation_phase', 'Implementation Phase', 'phase',
+         new Date(2025, 10, 16), new Date(2025, 11, 31), null, 0, null],
+        
+        // Implementation Phase Subtasks
+        ['project_setup', 'Initial project setup', 'not_started',
+         new Date(2025, 10, 16), new Date(2025, 10, 23), null, 0, null],
+        ['ui_sketch', 'UI sketch', 'not_started',
+         new Date(2025, 10, 16), new Date(2025, 10, 23), null, 0, null],
+        ['backend_development', 'Backend development', 'not_started',
+         new Date(2025, 10, 24), new Date(2025, 11, 15), null, 0, null],
+        ['frontend_development', 'Frontend development', 'not_started',
+         new Date(2025, 10, 24), new Date(2025, 11, 20), null, 0, null],
+        ['database_setup', 'Database setup and configuration', 'not_started',
+         new Date(2025, 10, 24), new Date(2025, 11, 10), null, 0, null],
+        ['security_implementation', 'Security implementation', 'not_started',
+         new Date(2025, 11, 11), new Date(2025, 11, 20), null, 0, null],
+        ['integration', 'Integration and API development', 'not_started',
+         new Date(2025, 11, 16), new Date(2025, 11, 25), null, 0, null],
+        ['final_integration', 'Final integration and bug fixes', 'not_started',
+         new Date(2025, 11, 26), new Date(2025, 11, 31), null, 0, null],
+        
+        // Testing Phase
+        ['testing_phase', 'Testing Phase', 'phase',
+         new Date(2026, 0, 1), new Date(2026, 0, 31), null, 0, null],
+        
+        // Deployment Phase
+        ['deployment_phase', 'Nasazení a školení uživatelů', 'phase',
+         new Date(2026, 1, 1), new Date(2026, 1, 15), null, 0, null]
+      ]);
+
+      var options = {
+        height: 800,
+        width: 1600,
+        gantt: {
+          trackHeight: 35,
+          barHeight: 25,
+          labelStyle: {
+            fontName: 'Arial',
+            fontSize: 13,
+            color: '#333333'
+          },
+          criticalPathEnabled: false,
+          innerGridHorizLine: {
+            stroke: '#ddd',
+            strokeWidth: 1
+          },
+          innerGridTrack: {
+            fill: '#f5f5f5'
+          },
+          innerGridDarkTrack: {
+            fill: '#e8e8e8'
+          },
+          palette: [
+            '#9c27b0',  // Purple for phases (first resource type)
+            '#34a853',  // Green for completed (second resource type)
+            '#4285f4',  // Blue for ongoing (third resource type)
+            '#fbbc04',  // Yellow for not started (fourth resource type)
+          ]
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    #chart_div {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .legend {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .legend-color {
+      width: 20px;
+      height: 15px;
+      border-radius: 3px;
+    }
+    .current-date {
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Party Planner Project Gantt Chart</h1>
+  
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #34a853;"></div>
+      <span>Completed</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #4285f4;"></div>
+      <span>Ongoing</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #fbbc04;"></div>
+      <span>Not Started</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background-color: #9c27b0;"></div>
+      <span>Phase</span>
+    </div>
+  </div>
+  
+  <div id="chart_div"></div>
+  
+  <div class="current-date">
+    Current Date: October 22, 2025
+  </div>
+</body>
+</html>
