@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Party Planner Project Gantt Chart</title>
+  <title>Ganttův diagram - Party Planner Projekt</title>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['gantt']});
@@ -24,8 +24,8 @@
 
       data.addRows([
         // Analysis Phase (Parent) - comes first
-        ['analysis_phase', 'Analysis Phase', 'phase',
-         new Date(2025, 8, 24), new Date(2025, 10, 15), null, 75, null],
+        ['analysis_phase', 'Fáze analýzy', 'phase',
+         new Date(2025, 8, 24), new Date(2025, 9, 29), null, 90, null],
         
         // Analysis Phase Subtasks
         ['intro_analysis', 'Úvodní analýza', 'completed',
@@ -38,51 +38,79 @@
          new Date(2025, 9, 10), new Date(2025, 9, 22), null, 100, null],
         ['business_analysis', 'Business analýza a příprava Ganttova diagramu', 'completed',
          new Date(2025, 9, 10), new Date(2025, 9, 15), null, 100, null],
-        ['component_diagram', 'Component diagram', 'ongoing',
-         new Date(2025, 9, 15), new Date(2025, 9, 22), null, 50, null],
-        ['deployment_diagram', 'Deployment diagram', 'ongoing',
-         new Date(2025, 9, 15), new Date(2025, 9, 22), null, 50, null],
-        ['class_diagram', 'Class diagram', 'ongoing',
-         new Date(2025, 9, 15), new Date(2025, 9, 22), null, 50, null],
-        ['system_analysis', 'Analýza softwaru/systému', 'not_started',
-         new Date(2025, 9, 23), new Date(2025, 9, 31), null, 0, null],
-        ['design', 'Návrh', 'not_started',
-         new Date(2025, 10, 1), new Date(2025, 10, 15), null, 0, null],
+        ['component_diagram', 'Component diagram', 'completed',
+         new Date(2025, 9, 15), new Date(2025, 9, 20), null, 100, null],
+        ['deployment_diagram', 'Deployment diagram', 'completed',
+         new Date(2025, 9, 15), new Date(2025, 9, 20), null, 100, null],
+        ['class_diagram', 'Class diagram', 'completed',
+         new Date(2025, 9, 15), new Date(2025, 9, 20), null, 100, null],
+        ['system_analysis', 'Analýza softwaru/systému', 'completed',
+         new Date(2025, 9, 21), new Date(2025, 9, 23), null, 100, null],
+        ['design', 'Návrh', 'completed',
+         new Date(2025, 9, 18), new Date(2025, 9, 21), null, 100, null],
+        ['prototype', 'Prototyp', 'completed',
+         new Date(2025, 9, 22), new Date(2025, 9, 28), null, 100, null],
+        ['presentation', 'Prezentace', 'ongoing',
+         new Date(2025, 9, 29), new Date(2025, 9, 31), null, 80, null],
         
-        // Implementation Phase (Parent) - comes before its subtasks
-        ['implementation_phase', 'Implementation Phase', 'phase',
-         new Date(2025, 10, 16), new Date(2025, 11, 31), null, 0, null],
+        // Implementation Phase (Parent) - November only
+        ['implementation_phase', 'Fáze implementace', 'phase',
+         new Date(2025, 10, 1), new Date(2025, 10, 30), null, 0, null],
         
-        // Implementation Phase Subtasks
-        ['project_setup', 'Initial project setup', 'not_started',
-         new Date(2025, 10, 16), new Date(2025, 10, 23), null, 0, null],
-        ['ui_sketch', 'UI sketch', 'not_started',
-         new Date(2025, 10, 16), new Date(2025, 10, 23), null, 0, null],
-        ['backend_development', 'Backend development', 'not_started',
-         new Date(2025, 10, 24), new Date(2025, 11, 15), null, 0, null],
-        ['frontend_development', 'Frontend development', 'not_started',
-         new Date(2025, 10, 24), new Date(2025, 11, 20), null, 0, null],
-        ['database_setup', 'Database setup and configuration', 'not_started',
-         new Date(2025, 10, 24), new Date(2025, 11, 10), null, 0, null],
-        ['security_implementation', 'Security implementation', 'not_started',
-         new Date(2025, 11, 11), new Date(2025, 11, 20), null, 0, null],
-        ['integration', 'Integration and API development', 'not_started',
-         new Date(2025, 11, 16), new Date(2025, 11, 25), null, 0, null],
-        ['final_integration', 'Final integration and bug fixes', 'not_started',
-         new Date(2025, 11, 26), new Date(2025, 11, 31), null, 0, null],
+        // Implementation Phase Subtasks - All in November
+        ['project_setup', 'Počáteční nastavení projektu', 'not_started',
+         new Date(2025, 10, 1), new Date(2025, 10, 4), null, 0, null],
+        ['database_setup', 'Nastavení a konfigurace databáze', 'not_started',
+         new Date(2025, 10, 5), new Date(2025, 10, 10), null, 0, null],
+        ['backend_development', 'Vývoj backendu', 'not_started',
+         new Date(2025, 10, 7), new Date(2025, 10, 22), null, 0, null],
+        ['frontend_development', 'Vývoj frontendu', 'not_started',
+         new Date(2025, 10, 11), new Date(2025, 10, 26), null, 0, null],
+        ['security_implementation', 'Implementace zabezpečení', 'not_started',
+         new Date(2025, 10, 23), new Date(2025, 10, 27), null, 0, null],
+        ['integration', 'Integrace a vývoj API', 'not_started',
+         new Date(2025, 10, 24), new Date(2025, 10, 29), null, 0, null],
+        ['final_integration', 'Finální integrace a oprava chyb', 'not_started',
+         new Date(2025, 10, 28), new Date(2025, 10, 30), null, 0, null],
         
-        // Testing Phase
-        ['testing_phase', 'Testing Phase', 'phase',
-         new Date(2026, 0, 1), new Date(2026, 0, 31), null, 0, null],
+        // Testing Phase (Parent) - December only
+        ['testing_phase', 'Fáze testování', 'phase',
+         new Date(2025, 11, 1), new Date(2025, 11, 31), null, 0, null],
         
-        // Deployment Phase
-        ['deployment_phase', 'Nasazení a školení uživatelů', 'phase',
+        // Testing Phase Subtasks - All in December
+        ['unit_testing', 'Unit testování', 'not_started',
+         new Date(2025, 11, 1), new Date(2025, 11, 7), null, 0, null],
+        ['integration_testing', 'Integrační testování', 'not_started',
+         new Date(2025, 11, 4), new Date(2025, 11, 14), null, 0, null],
+        ['system_testing', 'Systémové testování', 'not_started',
+         new Date(2025, 11, 15), new Date(2025, 11, 23), null, 0, null],
+        ['test_documentation', 'Dokumentace testů a zprávy', 'not_started',
+         new Date(2025, 11, 18), new Date(2025, 11, 28), null, 0, null],
+        ['user_acceptance_testing', 'Uživatelské přijímací testování (UAT)', 'not_started',
+         new Date(2025, 11, 24), new Date(2025, 11, 31), null, 0, null],
+        
+        // Deployment Phase (Parent) - January to February 15
+        ['deployment_phase', 'Fáze nasazení', 'phase',
+         new Date(2026, 0, 1), new Date(2026, 1, 15), null, 0, null],
+        
+        // Deployment Phase Subtasks - January and early February
+        ['environment_setup', 'Nastavení produkčního prostředí', 'not_started',
+         new Date(2026, 0, 1), new Date(2026, 0, 5), null, 0, null],
+        ['database_migration', 'Migrace databáze', 'not_started',
+         new Date(2026, 0, 6), new Date(2026, 0, 10), null, 0, null],
+        ['application_deployment', 'Nasazení aplikace', 'not_started',
+         new Date(2026, 0, 11), new Date(2026, 0, 16), null, 0, null],
+        ['smoke_testing', 'Smoke testování v produkci', 'not_started',
+         new Date(2026, 0, 17), new Date(2026, 0, 19), null, 0, null],
+        ['user_training', 'Školení uživatelů a dokumentace', 'not_started',
+         new Date(2026, 0, 20), new Date(2026, 0, 31), null, 0, null],
+        ['go_live', 'Spuštění a podpora', 'not_started',
          new Date(2026, 1, 1), new Date(2026, 1, 15), null, 0, null]
       ]);
 
       var options = {
-        height: 800,
-        width: 1600,
+        height: Math.max(1250, window.innerHeight - 100),
+        width: Math.max(1800, window.innerWidth - 100),
         gantt: {
           trackHeight: 35,
           barHeight: 25,
@@ -112,36 +140,68 @@
       };
 
       var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+      
+      // Adjust chart width dynamically to ensure all tasks are visible
+      var chartDiv = document.getElementById('chart_div');
+      var containerWidth = chartDiv.offsetWidth;
+      var minRequiredWidth = 1800; // Minimum width to show all deployment tasks
+      options.width = Math.max(minRequiredWidth, containerWidth);
+      
       chart.draw(data, options);
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        var newWidth = Math.max(minRequiredWidth, chartDiv.offsetWidth);
+        if (newWidth !== options.width) {
+          options.width = newWidth;
+          chart.draw(data, options);
+        }
+      });
     }
   </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
       background-color: #1a1a1a;
       color: #e0e0e0;
+      min-height: 100vh;
     }
     #chart_div {
       background-color: #2d2d2d;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.4);
       padding: 20px;
       overflow-x: auto;
+      overflow-y: auto;
       max-width: 100%;
+      width: 100%;
       border: 1px solid #404040;
+      margin: 0 auto;
+    }
+    #chart_div svg {
+      min-width: 1800px;
+      width: 100%;
     }
     h1 {
       text-align: center;
       color: #e0e0e0;
       margin-bottom: 30px;
+      margin-top: 0;
       font-weight: bold;
+      font-size: 2em;
     }
     .legend {
       display: flex;
       justify-content: center;
+      align-items: center;
       margin-bottom: 20px;
       gap: 20px;
+      flex-wrap: wrap;
     }
     .legend-item {
       display: flex;
@@ -149,48 +209,67 @@
       gap: 8px;
     }
     .legend-color {
-      width: 20px;
-      height: 15px;
+      width: 24px;
+      height: 18px;
       border-radius: 3px;
+      flex-shrink: 0;
     }
     .legend-item span {
       color: #e0e0e0;
       font-weight: bold;
+      white-space: nowrap;
     }
     .current-date {
       text-align: center;
       margin-top: 20px;
       color: #b0b0b0;
       font-style: italic;
+      font-size: 0.95em;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      .legend {
+        gap: 10px;
+        font-size: 0.9em;
+      }
+      #chart_div {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Party Planner Project Gantt Chart</h1>
+  <h1>Ganttův diagram - Party Planner Projekt</h1>
   
   <div class="legend">
     <div class="legend-item">
       <div class="legend-color" style="background-color: #34a853;"></div>
-      <span>Completed</span>
+      <span>Dokončeno</span>
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background-color: #4285f4;"></div>
-      <span>Ongoing</span>
+      <span>Probíhá</span>
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background-color: #fbbc04;"></div>
-      <span>Not Started</span>
+      <span>Nezačato</span>
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background-color: #9c27b0;"></div>
-      <span>Phase</span>
+      <span>Fáze</span>
     </div>
   </div>
   
   <div id="chart_div"></div>
   
   <div class="current-date">
-    Current Date: October 22, 2025
+    Aktuální datum: 29. října 2025
   </div>
 </body>
 </html>
