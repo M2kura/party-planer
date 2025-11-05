@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -44,5 +45,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the parties hosted by the user.
+     */
+    public function parties(): HasMany
+    {
+        return $this->hasMany(Party::class, 'host_id');
+    }
+
+    /**
+     * Get the party attendance records for the user.
+     */
+    public function guestAttendances(): HasMany
+    {
+        return $this->hasMany(Guest::class);
     }
 }
