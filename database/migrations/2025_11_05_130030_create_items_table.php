@@ -13,16 +13,10 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-
-            // Foreign key for the party this item belongs to
             $table->foreignId('party_id')->constrained('parties')->onDelete('cascade');
-            
             $table->string('name');
             $table->integer('quantity')->default(1);
-            
-            // We can add this later if we want guests to "claim" items
-            // $table->foreignId('guest_id')->nullable()->constrained('guests');
-
+            $table->foreignId('guest_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }
