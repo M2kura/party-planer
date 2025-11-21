@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "party-planner-api-collection",
+		"name": "Party Planner API",
+		"description": "API endpoints for Party Planner. Import into Postman to test.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "party-planner"
+	},
+	"item": [
+		{
+			"name": "Parties",
+			"item": [
+				{
+					"name": "List All Parties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/parties",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"parties"
+							]
+						},
+						"description": "Returns all parties with guests and items"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Party by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/parties/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"parties",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Party ID"
+								}
+							]
+						},
+						"description": "Returns party with guests (including user details) and items"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Party",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Birthday Party\",\n    \"description\": \"John's 30th birthday celebration\",\n    \"party_date\": \"2025-12-15T18:00:00\",\n    \"location\": \"456 Oak Avenue, City\",\n    \"host_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/parties",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"parties"
+							]
+						},
+						"description": "Creates a new party"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Party",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Party Name\",\n    \"location\": \"New Location\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/parties/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"parties",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Party ID"
+								}
+							]
+						},
+						"description": "Partial update - only provided fields are updated"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Party",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/parties/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"parties",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Party ID"
+								}
+							]
+						},
+						"description": "Deletes party and associated guests/items"
+					},
+					"response": []
+				}
+			],
+			"description": "Party management"
+		},
+		{
+			"name": "Guests",
+			"item": [
+				{
+					"name": "List All Guests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/guests",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"guests"
+							]
+						},
+						"description": "Returns all guests with user and party info"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Guest by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/guests/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"guests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Guest ID"
+								}
+							]
+						},
+						"description": "Returns guest details"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Guest Invitation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 2,\n    \"party_id\": 1,\n    \"status\": \"pending\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/guests",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"guests"
+							]
+						},
+						"description": "Creates invitation. Returns existing record if user already invited."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Guest RSVP",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"confirmed\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/guests/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"guests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Guest ID"
+								}
+							]
+						},
+						"description": "Updates guest status only"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Guest from Party",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/guests/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"guests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Guest ID"
+								}
+							]
+						},
+						"description": "Removes guest from party"
+					},
+					"response": []
+				}
+			],
+			"description": "Guest management and RSVPs"
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "List All Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items"
+							]
+						},
+						"description": "Returns all items with guest info"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/items/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Item ID"
+								}
+							]
+						},
+						"description": "Returns item details"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"party_id\": 1,\n    \"name\": \"Cake\",\n    \"quantity\": 1,\n    \"guest_id\": null\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items"
+							]
+						},
+						"description": "Creates item. Optionally assign to guest via guest_id."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Chocolate Cake\",\n    \"quantity\": 2,\n    \"guest_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/items/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Item ID"
+								}
+							]
+						},
+						"description": "Set guest_id to claim, null to unclaim"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/items/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Item ID"
+								}
+							]
+						},
+						"description": "Deletes item"
+					},
+					"response": []
+				}
+			],
+			"description": "Party items management"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Returns current user. Requires authentication."
+					},
+					"response": []
+				}
+			],
+			"description": "User operations"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
+
