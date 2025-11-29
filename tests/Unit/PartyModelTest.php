@@ -26,7 +26,8 @@ class PartyModelTest extends TestCase
         ]);
 
         // 3. Assert: Check if the party now has 1 guest
-        $this->assertTrue($party->guests->contains('user_id', $user->id));
+        $party->refresh(); // Refresh to load the relationship
+        $this->assertTrue($party->guests->where('user_id', $user->id)->isNotEmpty());
         $this->assertEquals(1, $party->guests->count());
     }
 }
