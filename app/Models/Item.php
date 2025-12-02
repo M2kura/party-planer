@@ -19,6 +19,7 @@ class Item extends Model
         'party_id',
         'name',
         'quantity',
+        'guest_id',
     ];
 
     /**
