@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
+Route::get('/login', function () {
+    return response()->json(['message' => 'Unauthenticated. Please login.'], 401);
+})->name('login');
+
 // --- Protected API Routes ---
 // All routes within this group require a valid token/session ('auth:sanctum')
 Route::middleware('auth:sanctum')->group(function () {
